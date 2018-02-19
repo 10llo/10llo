@@ -5,9 +5,7 @@
 |Patient Information|P|Contains patient information.|
 |Analysis order or query|O-Q|Contains analysis order information.|
 |Analysis result|R|Contains analysis result information.|
-|Comment|C|Contains comments about the sample, patient or report.|
 |Manufacturer information|M|Not used.|
-|Scientific information|S|Contains information concerning file path of QC lot information.|
 |Message termination|L|Indicates the end of the message.|
 
 ## HEADER
@@ -18,7 +16,7 @@
 | Trama | Ejemplo |
 | ------------- | ------------- |
 |ASTM_HEADER_DELIMITER|1H|
-|ASTM_HEADER_MESSAGE_CONTROL_ID|\^|
+|ASTM_HEADER_MESSAGE_CONTROL_ID|\\^&|
 |ASTM_HEADER_PASSWORD|vacio|
 |ASTM_HEADER_SENDERID|U-WAM^00-06_Build007^A1159^^^^AU501736|
 |ASTM_HEADER_SENDERADDR|vacio|
@@ -31,33 +29,10 @@
 |ASTM_HEADER_VERSION|LIS2-A2|
 |ASTM_HEADER_TIMESTAMP|20180120044334|
 
-## RESULT
-
-```
-<STX>7R|2|^^^URO^A^1^S^  0010^02|2.0^MAINFORMAT|mg/dL||H||||^^admin^administrator||20180119233905|UC-3500
-```
-
-| Trama | Ejemplo |
-| ------------- | ------------- |
-|ASTM_RESULT_DELIMITER|7R|
-|ASTM_RESULT_SECUENCE|2|
-|ASTM_RESULT_TEST_ID|^^^URO^A^1^S^ 0010^02|
-|ASTM_RESULT_DATA_MEASURE|2_0^MAINFORMAT|
-|ASTM_RESULT_UNITS|mg/dL|
-|ASTM_RESULT_REFERENCE_RANGES|vacio|
-|ASTM_RESULT_RESULT_ABNORMAL_FLAGS|H|
-|ASTM_RESULT_NATURE_OF_ABNORMALITY|vacio|
-|ASTM_RESULT_RESULT_STATUS|vacio|
-|ASTM_RESULT_DATE_OF_CHANGE|vacio|
-|ASTM_RESULT_OPERATOR_IDENTIFICATION|^^admin^administrator|
-|ASTM_RESULT_DATE_TIME_TEST_STARTED|vacio|
-|ASTM_RESULT_DATE_TIME_TEST_COMPLETED|20180119233905|
-|ASTM_RESULT_INSTRUMENT_IDENTIFICATION|UC-3500|
-
 ## PATIENT
 
 ```
-<STX>2P|1||3666354||HORACIO DE JESUS^TORO||19421223|M||||||OPOS<ETX>1C
+<STX>2P|1||3666354||HORACIO DE JESUS^TORO||19421223|M||||||OPOS
 ```
   
 | Trama | Ejemplo |
@@ -136,3 +111,40 @@
 |ASTM_ORDER_NOSOCIMIAL_INFECTION_FLAG|vacio|
 |ASTM_ORDER_SPECIMEN_SERVICE|vacio|
 |ASTM_ORDER_SPECIMEN_INSTITUTION|vacio|
+
+## RESULT
+
+```
+<STX>7R|2|^^^URO^A^1^S^  0010^02|2.0^MAINFORMAT|mg/dL||H||||^^admin^administrator||20180119233905|UC-3500
+```
+
+| Trama | Ejemplo |
+| ------------- | ------------- |
+|ASTM_RESULT_DELIMITER|7R|
+|ASTM_RESULT_SECUENCE|2|
+|ASTM_RESULT_TEST_ID|^^^URO^A^1^S^ 0010^02|
+|ASTM_RESULT_DATA_MEASURE|2_0^MAINFORMAT|
+|ASTM_RESULT_UNITS|mg/dL|
+|ASTM_RESULT_REFERENCE_RANGES|vacio|
+|ASTM_RESULT_RESULT_ABNORMAL_FLAGS|H|
+|ASTM_RESULT_NATURE_OF_ABNORMALITY|vacio|
+|ASTM_RESULT_RESULT_STATUS|vacio|
+|ASTM_RESULT_DATE_OF_CHANGE|vacio|
+|ASTM_RESULT_OPERATOR_IDENTIFICATION|^^admin^administrator|
+|ASTM_RESULT_DATE_TIME_TEST_STARTED|vacio|
+|ASTM_RESULT_DATE_TIME_TEST_COMPLETED|20180119233905|
+|ASTM_RESULT_INSTRUMENT_IDENTIFICATION|UC-3500|
+
+## TERMINATION
+
+```
+<STX>7L|1|N
+```
+  
+| Trama | Ejemplo |
+| ------------- | ------------- |
+|ASTM_TERMINATOR_DELIMITER|7L|
+|ASTM_TERMINATOR_SECUENCE|1|
+|ASTM_TERMINATOR_TERMINATOR_CODE|N|
+
+<STX>7L|1|N<ETX>0A
